@@ -71,9 +71,10 @@ To dump out all the details of the report to a shareable text file do:
 
 ### Perf additional docs
 
+- Detailed wiki with tutorial: <https://perf.wiki.kernel.org/index.php/Main_Page>
+- Performance analysis tools based on Linux perf_events (aka perf) and ftrace: <https://github.com/brendangregg/perf-tools>
 - The developers notes: <http://lxr.free-electrons.com/source/tools/perf/Documentation/examples.txt>
 - Compared to oprofile/gprof: <http://rhaas.blogspot.com/2012/06/perf-good-bad-ugly.html>
-- Detailed wiki with tutorial: <https://perf.wiki.kernel.org/index.php/Main_Page>
 
 ### Advanced uses of Perf
 
