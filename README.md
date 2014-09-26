@@ -154,6 +154,17 @@ for x in $(seq 1 ${RUNS})
 
 For more info on this approach see: http://poormansprofiler.org/
 
-## Activity Monitor.app on OSX
+## Instruments on OS X
+
+Instruments.app is a great visual studio for profiling and many other performance diagnostics. Documenting how to use it is beyond the scope of this doc, but one great trick that is no so obvious is how to use it from the command line. Technically you [can launch instruments from the command line](http://stackoverflow.com/questions/15410465/start-instruments-from-the-command-line) but what I've found more useful is to use `iprofiler` to first run a profiling trace. Then the output can be opened and viewed in the Instruments.app graphical interface. The syntax for a profiling trace with `iprofiler` is:
+
+    iprofiler -timeprofiler <your program> <your program args>
+
+When done `iprofiler` will dump a `.dtps` file in the current directory named after your program. You can then launch this like:
+
+    open *.dtps
+
+
+## Activity Monitor.app on OS X
 
 On OS X when a program starts running slowly, or appears hung, the first thing to do is run a trace using Activity Monitor. Activity Monitor is a GUI program located at `/Applications/Utilities/Activity Monitor.app`. It offers several windows but what we want is the main window also called "Activity Monitor" and activated with âŒ˜1 when the app is open. The main window will display all running processes. Find the process name or id of the process you are interested in and hit "Sample Process" which will run for several seconds and then output call graphs of each thread.
