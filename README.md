@@ -26,7 +26,7 @@ Install `linux-tools-common` first:
     sudo apt-get install linux-tools-common
     sudo apt-get install linux-base
     uname_r=$(uname -r)
-    sudo apt-get install linux-tools-${u%-virtual}
+    sudo apt-get install linux-tools-${uname_r%-virtual}
 
 You should now have the `perf` command. Run it as root like:
 
