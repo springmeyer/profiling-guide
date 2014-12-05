@@ -156,7 +156,7 @@ For more info on this approach see: http://poormansprofiler.org/
 
 ## Instruments on OS X
 
-Instruments.app is a great visual studio for profiling and many other performance diagnostics. Documenting how to use it is beyond the scope of this doc, but one great trick that is no so obvious is how to use it from the command line. Technically you [can launch instruments from the command line](http://stackoverflow.com/questions/15410465/start-instruments-from-the-command-line) but what I've found more useful is to use `iprofiler` to first run a profiling trace. Then the output can be opened and viewed in the Instruments.app graphical interface. The syntax for a profiling trace with `iprofiler` is:
+Instruments.app is a visual tool for viewing and interacting with the results of profiling and many other "instruments" you run. The command line tool [iprofiler](https://developer.apple.com/library/ios/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/GatheringDatafortheFirstTime/GatheringDatafortheFirstTime.html#//apple_ref/doc/uid/TP40004652-CH5-SW1) can be used to generate the data for instruments on the command line. Then the output can be opened and viewed in the Instruments.app graphical interface. The syntax for a profiling trace with `iprofiler` is:
 
     iprofiler -timeprofiler <your program> <your program args>
 
@@ -164,6 +164,9 @@ When done `iprofiler` will dump a `.dtps` file in the current directory named af
 
     open *.dtps
 
+One drawback of `iprofiler` is that each run overwrites the `.dtps` data file instead of appending. So, to be able to make multiple runs and compare the call stacks you need to set up your profiling script and run it inside of Instruments app (instead of using `iprofiler`). You can do this by clicking `Choose target...`.
+
+Note: You [can also launch instruments from the command line](http://stackoverflow.com/questions/15410465/start-instruments-from-the-command-line) but I've found `iprofiler` to be more convenient.
 
 ## Activity Monitor.app on OS X
 
