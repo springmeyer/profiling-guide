@@ -160,6 +160,14 @@ Instruments.app is a visual tool for viewing and interacting with the results of
 
     iprofiler -timeprofiler <your program> <your program args>
 
+If `your program` is local, this works:
+
+    iprofiler -timeprofiler ./your-program <your program args>
+
+If you are running something on your `PATH` like `node` then you need to give iprofiler the absolute path to the binary. You can do this like:
+
+    iprofiler -timeprofiler `which node` <your program args>
+
 When done `iprofiler` will dump a `.dtps` file in the current directory named after your program. You can then launch this like:
 
     open *.dtps
