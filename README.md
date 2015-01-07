@@ -186,7 +186,7 @@ To run an Activity Monitor trace on OS X 10.10 do:
 
 2. The main window will display all running processes. Find the process name or id of the process you are interested in and click the gear icon and then `Sample Process`.
 
-<img src="activity-monitor-sample.png" width="150">
+<img src="activity-monitor-sample.png" width="300">
 
 3. The sampling will run for several seconds and then output call graphs of each thread.
 
