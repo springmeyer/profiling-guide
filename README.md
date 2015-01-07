@@ -178,4 +178,22 @@ Note: You [can also launch instruments from the command line](http://stackoverfl
 
 ## Activity Monitor.app on OS X
 
-On OS X when a program starts running slowly, or appears hung, the first thing to do is run a trace using Activity Monitor. Activity Monitor is a GUI program located at `/Applications/Utilities/Activity Monitor.app`. It offers several windows but what we want is the main window also called "Activity Monitor" and activated with âŒ˜1 when the app is open. The main window will display all running processes. Find the process name or id of the process you are interested in and hit "Sample Process" which will run for several seconds and then output call graphs of each thread.
+On OS X when a program starts running slowly, or appears hung, you can figure out what is happening by sampling the process to see what it is doing. Sampling generates a call tree of what C or C++ functions are being called and how much time is spent in each. This call tree may be indecipherable to users unfamiliar with a programs internals. But it can be shared with a developer to quickly diagnose the problem and potential ways to fix it.
+
+To run an Activity Monitor trace on OS X 10.10 do:
+
+1. Open `/Applications/Utilities/Activity Monitor.app`. You can do this on the command line like: `open -a "Activity Monitor"`
+
+2. The main window will display all running processes. Find the process name or id of the process you are interested in and click the gear icon and then `Sample Process`.
+
+![](activity-monitor-sample.png)
+
+3. The sampling will run for several seconds and then output call graphs of each thread.
+
+You can choose `Percent of Thread` for the display to get an easy to screenshot view like:
+
+![](activity-monitor-callstack.png)
+
+But to share the entire output with a developer choose `Sample Text` and then you can copy/paste the entire call tree.
+
+
