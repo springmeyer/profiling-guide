@@ -22,9 +22,9 @@ It does not require recompiling your c-land programs, so it can be easily used i
 
 Install `linux-tools-common` first:
 
-    sudo apt-get update
-    sudo apt-get install linux-tools-common
-    sudo apt-get install linux-base
+    sudo apt-get -y update
+    sudo apt-get install -y linux-tools-common
+    sudo apt-get install -y linux-base
     uname_r=$(uname -r)
     sudo apt-get install linux-tools-${uname_r%-virtual}
 
