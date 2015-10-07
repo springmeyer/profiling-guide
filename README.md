@@ -14,7 +14,7 @@ But the two most valuable in my opinion are gdb and perf.
 
 ## Perf
 
-`perf` is an amazing but relatively unknown profiling tool built into the linux kernal. It is easy to install and run and can be used either for quick analysis of what the whole system is doing (`perf top`) or advanced analysis and comparisions of multiple program benchmarking runs (`perf record`).
+`perf` is an amazing but relatively unknown profiling tool built into the linux kernal. It is easy to install and run and can be used either for quick analysis of what the whole system is doing (`perf top`) or advanced analysis and comparisons of multiple program benchmarking runs (`perf record`).
 
 It does not require recompiling your c-land programs, so it can be easily used in production systems to debug slow running code or to understand where bottlenecks are. If your program is compiled in debug mode `perf` is able to provide more detailed call graphs and annotation of code hot spots.
 
