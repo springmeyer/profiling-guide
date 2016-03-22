@@ -136,7 +136,7 @@ But, for programs that are running fast (using lots of CPU) a single GDB backtra
 You can run this quickly in succession like:
 
 ```sh
-gdb -ex "set pagination 0" -ex "thread apply all bt" --batch --pid `pidof python`
+sudo gdb -ex "set pagination 0" -ex "thread apply all bt" --batch --pid `pidof python`
 ```
 
 Or in a loop like:
