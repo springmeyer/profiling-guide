@@ -55,7 +55,7 @@ Handy options to perf record are:
  - `-a`: force `perf record` to track all cpus
  - `-g`: generates call graph information
 
-NOTE: more recent `perf` versions may require an argument tobe passed after the `-g` like `dwarf`
+NOTE: more recent `perf` versions may require an argument to be passed after the `-g` like `dwarf`
 
 ### Perf report
 
