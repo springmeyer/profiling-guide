@@ -20,17 +20,50 @@ It does not require recompiling your c-land programs, so it can be easily used i
 
 ### Installing Perf
 
-Install `linux-tools-common` first:
+Install like:
 
-    sudo apt-get -y update
-    sudo apt-get install -y linux-tools-common
-    sudo apt-get install -y linux-base
-    uname_r=$(uname -r)
-    sudo apt-get install linux-tools-${uname_r%-virtual}
+```
+sudo apt-get -y update
+sudo apt-get install -y linux-tools-common
+sudo apt-get install -y linux-base
+uname_r=$(uname -r)
+sudo apt-get install linux-tools-${uname_r%-virtual}
+```
 
 You should now have the `perf` command. Run it as root like:
 
     sudo perf --help
+
+If you are running `docker` these commands probably will probably either not work or will not result in a working `perf` command. If a perf command is installed it will may dump an error like:
+
+```
+WARNING: perf not found for kernel 4.4.30
+
+  You may need to install the following packages for this specific kernel:
+        linux-tools-4.4.30
+```
+
+Packages for `linux-tools-*` are by kernal version (hence the `uname -r` above). Docker containers actually use the kernal from the host and not the container OS, so `uname -r` inside a docker container may be return a spurious kernal version that your ubuntu version does not have packages for.
+
+Therefore to install perf inside a container instead try:
+
+
+```
+apt-get install lsb-release
+codename=$(lsb_release --codename | cut -f2)
+apt-get install linux-generic-lts-${codename}
+apt-get install linux-tools-lts-${codename}
+```
+
+Then you should have a `perf` command somewhere inside:
+
+```
+$ ls /usr/lib/linux-tools/*/perf
+/usr/lib/linux-tools/3.13.0-101-generic/perf
+```
+
+NOTE: it is unclear, at the time of this writing, whether this `perf` command will work correctly on docker containers.
+
 
 ### Perf top
 
