@@ -132,7 +132,8 @@ ps aux | grep python
 # or more direct:
 pidof python
 ```
-Now, run as root and attach to the process using gdb. Be aware that your program will become hung by attaching, but when we exit gdb it will wake up.
+
+Now, run as root and attach to the process using gdb. Be aware that your program will be paused by attaching, but when we exit gdb it will wake up.
 
 ```
 sudo gdb --pid `pidof python`
@@ -185,7 +186,7 @@ for x in $(seq 1 ${RUNS})
   done
 ```
 
-For more info on this approach see: http://poormansprofiler.org/
+For more info on this approach see: http://stackoverflow.com/a/378024 and http://poormansprofiler.org/
 
 ## Instruments on OS X
 
