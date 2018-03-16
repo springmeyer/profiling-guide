@@ -104,6 +104,7 @@ To dump out all the details of the report to a shareable text file do:
 
 ### Perf additional docs
 
+- Julia Evans into to `perf top` at Strangeloop 2016: https://youtu.be/HfD9IMZ9rKY?t=809
 - Detailed wiki with tutorial: <https://perf.wiki.kernel.org/index.php/Main_Page>
 - Performance analysis tools based on Linux perf_events (aka perf) and ftrace: <https://github.com/brendangregg/perf-tools>
 - The developers notes: <http://lxr.free-electrons.com/source/tools/perf/Documentation/examples.txt>
