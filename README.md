@@ -191,7 +191,7 @@ For more info on this approach see: http://stackoverflow.com/a/378024 and http:/
 
 ## Instruments on OS X
 
-Instruments.app is a visual tool for viewing and interacting with the results of profiling and many other "instruments" you run. The command line tool [iprofiler](https://developer.apple.com/library/ios/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/GatheringDatafortheFirstTime/GatheringDatafortheFirstTime.html#//apple_ref/doc/uid/TP40004652-CH5-SW1) can be used to generate the data for instruments on the command line. Then the output can be opened and viewed in the Instruments.app graphical interface. The syntax for a profiling trace with `iprofiler` is:
+Instruments.app is a visual tool for viewing and interacting with the results of profiling and many other "instruments" you run. The command line tool [iprofiler](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/iprofiler.1.html) can be used to generate the data for instruments on the command line. Then the output can be opened and viewed in the Instruments.app graphical interface. The syntax for a profiling trace with `iprofiler` is:
 
     iprofiler -timeprofiler <your program> <your program args>
 
