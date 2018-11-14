@@ -191,25 +191,16 @@ For more info on this approach see: http://stackoverflow.com/a/378024 and http:/
 
 ## Instruments on OS X
 
-Instruments.app is a visual tool for viewing and interacting with the results of profiling and many other "instruments" you run. The command line tool [iprofiler](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/iprofiler.1.html) can be used to generate the data for instruments on the command line. Then the output can be opened and viewed in the Instruments.app graphical interface. The syntax for a profiling trace with `iprofiler` is:
+Instruments.app is a visual tool for viewing and interacting with the results of profiling and many other "instruments" you run. You can generate data to view in instruments by running it on the command line. Then the output can be opened and viewed in the Instruments.app graphical interface.
 
-    iprofiler -timeprofiler <your program> <your program args>
+    instruments -t "Time Profiler" `which <your program>` <your program args>
 
-If `your program` is local, this works:
+When done you should see a `.trace` folder in the current directory named after your program. You can then launch this like:
 
-    iprofiler -timeprofiler ./your-program <your program args>
+    open *.trace
 
-If you are running something on your `PATH` like `node` then you need to give iprofiler the absolute path to the binary. You can do this like:
+One drawback of this method is that each run overwrites the `.trace` data file instead of appending. So, to be able to make multiple runs and compare the call stacks you need to set up your profiling script and run it inside of Instruments app (instead of via the command line). You can do this by clicking `Choose target...`.
 
-    iprofiler -timeprofiler `which node` <your program args>
-
-When done `iprofiler` will dump a `.dtps` file in the current directory named after your program. You can then launch this like:
-
-    open *.dtps
-
-One drawback of `iprofiler` is that each run overwrites the `.dtps` data file instead of appending. So, to be able to make multiple runs and compare the call stacks you need to set up your profiling script and run it inside of Instruments app (instead of using `iprofiler`). You can do this by clicking `Choose target...`.
-
-Note: You [can also launch instruments from the command line](http://stackoverflow.com/questions/15410465/start-instruments-from-the-command-line) but I've found `iprofiler` to be more convenient.
 
 ## Activity Monitor.app on OS X
 
