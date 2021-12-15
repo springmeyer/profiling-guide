@@ -2,7 +2,7 @@
 
 Profiling tools are critical for trying to understand performance bottlenecks in code.
 
-Without real data about what a program is doing while running, detecting bottlenecks is at best a process of trial and error for both users and developers. While thoughtful testing of various program configurations along with measuring time elapsed for decrete runs can often be enough - why not learn faster and funner ways to rapidly collect real data about what a program is doing?
+Without real data about what a program is doing while running, detecting bottlenecks is at best a process of trial and error for both users and developers. While thoughtful testing of various program configurations along with measuring time elapsed for discrete runs can often be enough - why not learn faster and funner ways to rapidly collect real data about what a program is doing?
 
 Actual data about program execution like which functions are being called while a program is active helps point to hot parts of the code where most time may be being spent. While users of applications may not easily understand the output of profiling tools, being equipped to generate profiling output can be extremely useful for sharing with developers, since the time to set up robust test cases for developers is can be greater than the time it takes to understand and optimize slow code paths. Therefore it can be invaluable to get a rough snapshot of profiling output from users.
 
@@ -14,7 +14,7 @@ But the two most valuable in my opinion are gdb and perf.
 
 ## Perf
 
-`perf` is an amazing but relatively unknown profiling tool built into the linux kernal. It is easy to install and run and can be used either for quick analysis of what the whole system is doing (`perf top`) or advanced analysis and comparisons of multiple program benchmarking runs (`perf record`).
+`perf` is an amazing but relatively unknown profiling tool built into the linux kernel. It is easy to install and run and can be used either for quick analysis of what the whole system is doing (`perf top`) or advanced analysis and comparisons of multiple program benchmarking runs (`perf record`).
 
 It does not require recompiling your c-land programs, so it can be easily used in production systems to debug slow running code or to understand where bottlenecks are. If your program is compiled in debug mode `perf` is able to provide more detailed call graphs and annotation of code hot spots.
 
@@ -34,7 +34,7 @@ You should now have the `perf` command. Run it as root like:
 
     sudo perf --help
 
-If you are running `docker` these commands probably will probably either not work or will not result in a working `perf` command. If a perf command is installed it will may dump an error like:
+If you are running `docker` these commands will probably either not work or will not result in a working `perf` command. If a perf command is installed it will may dump an error like:
 
 ```
 WARNING: perf not found for kernel 4.4.30
@@ -43,7 +43,7 @@ WARNING: perf not found for kernel 4.4.30
         linux-tools-4.4.30
 ```
 
-Packages for `linux-tools-*` are by kernal version (hence the `uname -r` above). Docker containers actually use the kernal from the host and not the container OS, so `uname -r` inside a docker container may be return a spurious kernal version that your ubuntu version does not have packages for.
+Packages for `linux-tools-*` are by kernel version (hence the `uname -r` above). Docker containers actually use the kernel from the host and not the container OS, so `uname -r` inside a docker container may be return a spurious kernel version that your ubuntu version does not have packages for.
 
 Therefore to install perf inside a container instead try:
 
@@ -74,7 +74,7 @@ Running `perf top` will provide a real-time aggregate of functions where most of
 
 ### Perf record
 
-To isolate profiling to a single process or program use `perf record`. You can launch a process under `perf record` or attach to an already running process
+To isolate profiling to a single process or program use `perf record`. You can launch a process under `perf record` or attach to an already running process.
 
 Run a program with `perf record` and profile until the program exits:
 
@@ -112,7 +112,7 @@ To dump out all the details of the report to a shareable text file do:
 
 ### Advanced uses of Perf
 
- - Undertanding memory access: http://mechanical-sympathy.blogspot.co.uk/2012/08/memory-access-patterns-are-important.html
+ - Understanding memory access: http://mechanical-sympathy.blogspot.co.uk/2012/08/memory-access-patterns-are-important.html
 
 ## GDB
 
@@ -223,4 +223,3 @@ You can choose `Percent of Thread` for the display to get an easy to screenshot 
 To share the entire output with a developer choose `Sample Text` and then you can copy/paste the entire call tree.
 
 ![](activity-monitor-callstack-text.png)
-
